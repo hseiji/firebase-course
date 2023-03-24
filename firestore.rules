@@ -32,14 +32,12 @@ service cloud.firestore {
       //Any authenticated user may create a profile and view other users' profiles.
       allow read, create: if (request.auth != null);
 
-      // Any authenticated user is allowed to edit their own profile. Admin users can edit any user's profile.
+      // Any authenticated user is allowed to edit their own profile. Admin users can edit any user's profile. Only the admin users can make other users admins. 
       allow update: if (request.auth != null && (request.auth.uid == resource.data.uid || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin));
 
 
     
     }
-
-// Only the admin users can make other users admins. 
 
   }
 }
