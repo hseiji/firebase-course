@@ -56,6 +56,8 @@ const Profile = () => {
           </>
         )}
       </LoadingError>
+      {/* New section for admin status */}
+      <Card>Admin</Card>
     </main>
   );
 };
