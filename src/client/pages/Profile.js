@@ -57,7 +57,24 @@ const Profile = () => {
         )}
       </LoadingError>
       {/* New section for admin status */}
-      <Card>Admin</Card>
+      <Card className="inline-flex justify-center">
+        <div className="sm:col-span-3 text-center sm:text-left">
+          <h3 className="text-lg leading-6 font-medium text-gray-900">
+            Admin Status:
+          </h3>
+          <p className="text-indigo-600">{`${userDoc?.isAdmin}`}</p>
+        </div>
+        <div className="sm:col-span-1 lg:col-span-2 space-x-4 flex flex-wrap justify-center sm:justify-end items-center">
+          {adminMode && (
+            <button
+              type="button"
+              className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Change
+            </button>
+          )}
+        </div>
+      </Card>
     </main>
   );
 };
